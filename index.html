@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Donation Portal</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="Logo.png" alt="Blood Portal Logo">
+    </div>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register Donor</a>
+      <a href="search.html">Search Donors</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html">Admin login</a>
+    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="banner.png" alt="Blood Donation Banner">
+    <h1>Give Blood, Save Lives</h1>
+    <p>Be a hero today by registering as a blood donor.</p>
+    <a href="register.html" class="btn">Register Now</a>
+  </header>
+
+  <!-- About Us Section -->
+  <section id="about" class="info-section">
+    <h2>About Us</h2>
+    <p>
+      Our Blood Donation Portal is a non-profit initiative aimed at saving lives by bridging the gap between voluntary blood donors and patients in need. We believe in creating a reliable, accessible, and fast network that empowers communities to support each other in times of emergency. Together, we can build a stronger, healthier future.
+    </p>
+  </section>
+
+  <!-- Why Donate Section -->
+  <section id="why-donate" class="info-section">
+    <h2>Why Donate Blood?</h2>
+    <ul>
+      <li>One donation can save up to 3 lives.</li>
+      <li>No substitute for human blood.</li>
+      <li>Promotes a healthier heart and liver for donors.</li>
+      <li>Free health screening and awareness of your health status.</li>
+    </ul>
+  </section>
+
+  <!-- Eligibility Form Section -->
+  <section id="eligibility-form" class="info-section">
+    <h2>Check Your Blood Donation Eligibility</h2>
+    <form id="eligibilityCheckForm">
+      <label>Age:
+        <input type="number" id="age" required>
+      </label><br><br>
+
+      <label>Weight (in kg):
+        <input type="number" id="weight" required>
+      </label><br><br>
+
+      <label>
+        Are you in good health?
+        <select id="health">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </label><br><br>
+
+      <label>
+        Had alcohol in last 24 hours?
+        <select id="alcohol">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </label><br><br>
+
+      <button type="submit">Check Eligibility</button>
+    </form>
+
+    <div id="eligibilityResult" style="margin-top: 20px; font-weight: bold;"></div>
+  </section>
+
+  <!-- Tips Section -->
+  <section id="donation-tips" class="info-section">
+    <h2>Tips Before and After Donating</h2>
+    <ul>
+      <li>Drink plenty of water before and after donating.</li>
+      <li>Eat a healthy meal within 2 hours before donation.</li>
+      <li>Relax and avoid strenuous activities afterward.</li>
+      <li>Inform the staff if you feel dizzy or unwell.</li>
+    </ul>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="info-section">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Is it safe to donate blood?</summary>
+      <p>Yes. Sterile and single-use needles are used. It is completely safe and painless.</p>
+    </details>
+    <details>
+      <summary>How often can I donate?</summary>
+      <p>You can donate whole blood every 3 months (male) and every 4 months (female).</p>
+    </details>
+    <details>
+      <summary>What are the benefits of donating?</summary>
+      <p>Besides saving lives, it helps in maintaining a healthy iron level and improves heart health.</p>
+    </details>
+  </section>
+  
+  <!-- Eligibility Popup -->
+<div id="popupOverlay" class="popup-overlay">
+  <div class="popup-box">
+    <h3>🎉 You're Eligible!</h3>
+    <p>Thank you for checking. You're eligible to donate blood.</p>
+    <button id="closePopup">Close</button>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Blood Donation Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

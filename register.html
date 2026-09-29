@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Donor</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="Logo.png" alt="Logo"></div>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="search.html">Search</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </nav>
+
+  <section class="form-section">
+    <h2>Register as a Donor</h2>
+    <form id="donorForm">
+      <input type="text" placeholder="Name" required id="name">
+      <input type="tel" placeholder="Phone Number" required id="phone">
+      <input type="text" placeholder="City" required id="city">
+      <select id="bloodGroup" required>
+        <option value="">Select Blood Group</option>
+        <option>A+</option><option>B+</option><option>O+</option>
+        <option>AB+</option><option>A-</option><option>B-</option>
+        <option>O-</option><option>AB-</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="successMessage" class="success-message"></p>
+  </section>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

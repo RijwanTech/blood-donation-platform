@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Blood Donation Portal</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="Logo.png" alt="Blood Donation Logo" />
+    </div>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="search.html">Search</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form onsubmit="return login(event)">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p id="loginMessage" class="login-message"></p>
+    </form>
+  </div>
+
+  <script>
+    // Hamburger Toggle
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("menu").classList.toggle("show");
+    });
+
+    // Simple Login Logic
+    function login(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("loginMessage");
+
+      if (username === "admin" && password === "admin123") {
+        message.style.color = "green";
+        message.innerText = "Login successful!";
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1000);
+      } else {
+        message.style.color = "red";
+        message.innerText = "Invalid credentials. Try admin / admin123.";
+      }
+    }
+  </script>
+
+</body>
+</html>

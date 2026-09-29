@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Donors</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="logo.png" alt="Logo"></div>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="search.html">Search</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html">Admin login</a>
+    </div>
+  </nav>
+
+  <section class="form-section">
+    <h2>Find a Donor</h2>
+    <select id="bloodGroup">
+      <option value="">Select Blood Group</option>
+      <option>A+</option><option>B+</option><option>O+</option>
+      <option>AB+</option><option>A-</option><option>B-</option>
+      <option>O-</option><option>AB-</option>
+    </select>
+    <button onclick="searchDonors()">Search</button>
+
+    <!-- Result container -->
+    <div id="results" class="donor-results"></div>
+  </section>
+
+  <script>
+    
+    function searchDonors() {
+      const selectedGroup = document.getElementById("bloodGroup").value;
+      const resultsContainer = document.getElementById("results");
+      resultsContainer.innerHTML = "";
+
+      const donors = JSON.parse(localStorage.getItem("donors")) || [];
+      const filtered = donors.filter(d => d.bloodGroup === selectedGroup);
+
+      if (filtered.length === 0) {
+        const noResultDiv = document.createElement("div");
+        noResultDiv.className = "no-result-animated";
+        noResultDiv.innerHTML = `
+          <div class="no-donor-message">
+            <img src="blood-drop.png" alt="Blood Drop" class="blood-drop-animated">
+            <span>😥 No donors found for this blood group.</span>
+          </div>
+        `;
+        resultsContainer.appendChild(noResultDiv);
+        return;
+      }
+
+      // Add donor found message
+      const foundDiv = document.createElement("div");
+      foundDiv.className = "donor-found";
+      foundDiv.innerHTML = `
+        <img src="blood-drop.png" alt="Blood Drop" class="blood-drop-glow">
+        <p>✅ Donors available for this blood group!</p>
+      `;
+      resultsContainer.appendChild(foundDiv);
+
+      // Add donor cards
+      filtered.forEach(d => {
+        const card = document.createElement("div");
+        card.className = "donor-card animated-card";
+        card.innerHTML = `
+          <h3>${d.name}</h3>
+          <p><strong>Blood Group:</strong> ${d.bloodGroup}</p>
+          <p><strong>Phone:</strong> ${d.phone}</p>
+          <p><strong>City:</strong> ${d.city}</p>
+        `;
+        resultsContainer.appendChild(card);
+      });
+
+    }
+  </script>
+  
+  <script src="scripts/script.js"></script>
+
+</body>
+</html>
