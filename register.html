@@ -2,37 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register Donor</title>
-  <link rel="stylesheet" href="styles/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register as a Donor | Blood Donation Portal</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
   <nav class="navbar">
-    <div class="logo"><img src="Logo.png" alt="Logo"></div>
-    <div class="menu">
+    <a class="logo" href="index.html" aria-label="Blood Donation Portal home">
+      <img src="Logo.png" alt="Blood Donation Portal">
+    </a>
+    <div class="menu" id="menu">
       <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
-      <a href="search.html">Search</a>
+      <a href="register.html" class="active">Register Donor</a>
+      <a href="search.html">Search Donors</a>
       <a href="dashboard.html">Dashboard</a>
+      <a href="login.html">Admin login</a>
     </div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="menu" aria-expanded="false">&#9776;</button>
   </nav>
 
-  <section class="form-section">
-    <h2>Register as a Donor</h2>
-    <form id="donorForm">
-      <input type="text" placeholder="Name" required id="name">
-      <input type="tel" placeholder="Phone Number" required id="phone">
-      <input type="text" placeholder="City" required id="city">
-      <select id="bloodGroup" required>
-        <option value="">Select Blood Group</option>
-        <option>A+</option><option>B+</option><option>O+</option>
-        <option>AB+</option><option>A-</option><option>B-</option>
-        <option>O-</option><option>AB-</option>
-      </select>
-      <button type="submit">Submit</button>
-    </form>
-    <p id="successMessage" class="success-message"></p>
-  </section>
+  <main class="page-main">
+    <section class="registration-layout" aria-labelledby="registration-title">
+      <div class="registration-intro">
+        <span class="form-eyebrow">Be there when it matters</span>
+        <h1>Your kindness can be someone’s lifeline.</h1>
+        <p>Join our community of voluntary donors. Add your details so patients can find the support they need.</p>
+        <div class="registration-note">
+          <span class="registration-note__icon" aria-hidden="true">♥</span>
+          <p><strong>Every donor matters</strong><br>Registering helps connect your blood group with people in need.</p>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-heading">
+          <span>Donor details</span>
+          <h2 id="registration-title">Register as a donor</h2>
+          <p>Complete the form below to join the donor network.</p>
+        </div>
+
+        <form id="donorForm">
+          <label for="name">Full name</label>
+          <input type="text" placeholder="e.g. Alex Morgan" autocomplete="name" required id="name">
+
+          <label for="phone">Phone number</label>
+          <input type="tel" placeholder="e.g. 98765 43210" autocomplete="tel" inputmode="tel" required id="phone">
+
+          <label for="city">City</label>
+          <input type="text" placeholder="Your city" autocomplete="address-level2" required id="city">
+
+          <label for="bloodGroup">Blood group</label>
+          <select id="bloodGroup" required>
+            <option value="">Select your blood group</option>
+            <option>A+</option><option>B+</option><option>O+</option>
+            <option>AB+</option><option>A-</option><option>B-</option>
+            <option>O-</option><option>AB-</option>
+          </select>
+
+          <button type="submit">Join the donor network <span aria-hidden="true">→</span></button>
+        </form>
+        <p id="successMessage" class="success-message" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Blood Donation Portal. All rights reserved.</p>
+  </footer>
 
   <script src="scripts/script.js"></script>
 </body>

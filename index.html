@@ -2,127 +2,231 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blood Donation Portal</title>
   <link rel="stylesheet" href="styles/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="logo">
       <img src="Logo.png" alt="Blood Portal Logo">
     </div>
     <div class="menu" id="menu">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="register.html">Register Donor</a>
       <a href="search.html">Search Donors</a>
       <a href="dashboard.html">Dashboard</a>
       <a href="login.html">Admin login</a>
     </div>
-    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</div>
   </nav>
 
-  <!-- Hero Section -->
   <header class="hero">
-    <img src="banner.png" alt="Blood Donation Banner">
-    <h1>Give Blood, Save Lives</h1>
-    <p>Be a hero today by registering as a blood donor.</p>
-    <a href="register.html" class="btn">Register Now</a>
+    <div class="hero__content">
+      <span class="eyebrow">Community health support</span>
+      <h1>Give Blood, Save Lives</h1>
+      <p>Be a hero today by registering as a blood donor and helping patients receive timely, life-saving care.</p>
+
+      <div class="hero__actions">
+        <a href="register.html" class="btn btn--primary">Register Now</a>
+        <a href="#about" class="btn btn--secondary">Learn More</a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="stat-card">
+          <strong>1200+</strong>
+          <span>Donors connected</span>
+        </div>
+        <div class="stat-card">
+          <strong>350+</strong>
+          <span>Lives supported</span>
+        </div>
+        <div class="stat-card">
+          <strong>24/7</strong>
+          <span>Emergency help</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__image-card">
+        <img src="Banner.png" alt="Blood donation banner">
+        <div class="floating-badge">Urgent need · 24/7 support</div>
+      </div>
+    </div>
   </header>
 
-  <!-- About Us Section -->
-  <section id="about" class="info-section">
-    <h2>About Us</h2>
-    <p>
-      Our Blood Donation Portal is a non-profit initiative aimed at saving lives by bridging the gap between voluntary blood donors and patients in need. We believe in creating a reliable, accessible, and fast network that empowers communities to support each other in times of emergency. Together, we can build a stronger, healthier future.
-    </p>
-  </section>
+  <main>
+    <section id="about" class="content-section">
+      <div class="section-heading">
+        <span>About us</span>
+        <h2>Connecting generous donors with patients who need them most.</h2>
+      </div>
 
-  <!-- Why Donate Section -->
-  <section id="why-donate" class="info-section">
-    <h2>Why Donate Blood?</h2>
-    <ul>
-      <li>One donation can save up to 3 lives.</li>
-      <li>No substitute for human blood.</li>
-      <li>Promotes a healthier heart and liver for donors.</li>
-      <li>Free health screening and awareness of your health status.</li>
-    </ul>
-  </section>
+      <div class="story-grid">
+        <article class="story-card">
+          <p>
+            Our Blood Donation Portal is a non-profit initiative built to bridge the gap between voluntary blood donors and patients in need. We believe every healthy individual can become a lifesaver, and every donation can help restore hope for families facing emergencies.
+          </p>
+          <p>
+            By combining accessibility, transparency, and fast donor matching, we are making blood donation more organized, reliable, and community-driven.
+          </p>
+        </article>
 
-  <!-- Eligibility Form Section -->
-  <section id="eligibility-form" class="info-section">
-    <h2>Check Your Blood Donation Eligibility</h2>
-    <form id="eligibilityCheckForm">
-      <label>Age:
-        <input type="number" id="age" required>
-      </label><br><br>
+        <article class="story-card highlight">
+          <h3>Why it matters</h3>
+          <ul>
+            <li>Fast donor access in critical situations</li>
+            <li>Stronger communities through volunteer care</li>
+            <li>Reliable support for hospitals and patients</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-      <label>Weight (in kg):
-        <input type="number" id="weight" required>
-      </label><br><br>
+    <section id="why-donate" class="content-section">
+      <div class="section-heading">
+        <span>Benefits</span>
+        <h2>Why donate blood?</h2>
+      </div>
 
-      <label>
-        Are you in good health?
-        <select id="health">
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </label><br><br>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">💉</div>
+          <h3>Save lives</h3>
+          <p>One donation can help save up to three lives in emergency situations.</p>
+        </article>
 
-      <label>
-        Had alcohol in last 24 hours?
-        <select id="alcohol">
-          <option value="no">No</option>
-          <option value="yes">Yes</option>
-        </select>
-      </label><br><br>
+        <article class="feature-card">
+          <div class="feature-icon">🩸</div>
+          <h3>Critical need</h3>
+          <p>Blood cannot be artificially manufactured, so donor support is essential.</p>
+        </article>
 
-      <button type="submit">Check Eligibility</button>
-    </form>
+        <article class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <h3>Health benefits</h3>
+          <p>Regular donation can support heart and liver health while promoting awareness.</p>
+        </article>
 
-    <div id="eligibilityResult" style="margin-top: 20px; font-weight: bold;"></div>
-  </section>
+        <article class="feature-card">
+          <div class="feature-icon">🩺</div>
+          <h3>Free screening</h3>
+          <p>Each donation includes health checks that help you stay informed about your wellbeing.</p>
+        </article>
+      </div>
+    </section>
 
-  <!-- Tips Section -->
-  <section id="donation-tips" class="info-section">
-    <h2>Tips Before and After Donating</h2>
-    <ul>
-      <li>Drink plenty of water before and after donating.</li>
-      <li>Eat a healthy meal within 2 hours before donation.</li>
-      <li>Relax and avoid strenuous activities afterward.</li>
-      <li>Inform the staff if you feel dizzy or unwell.</li>
-    </ul>
-  </section>
+    <section id="eligibility-form" class="content-section narrow">
+      <div class="section-heading">
+        <span>Eligibility check</span>
+        <h2>Check if you are ready to donate</h2>
+      </div>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="info-section">
-    <h2>Frequently Asked Questions</h2>
-    <details>
-      <summary>Is it safe to donate blood?</summary>
-      <p>Yes. Sterile and single-use needles are used. It is completely safe and painless.</p>
-    </details>
-    <details>
-      <summary>How often can I donate?</summary>
-      <p>You can donate whole blood every 3 months (male) and every 4 months (female).</p>
-    </details>
-    <details>
-      <summary>What are the benefits of donating?</summary>
-      <p>Besides saving lives, it helps in maintaining a healthy iron level and improves heart health.</p>
-    </details>
-  </section>
-  
-  <!-- Eligibility Popup -->
-<div id="popupOverlay" class="popup-overlay">
-  <div class="popup-box">
-    <h3>🎉 You're Eligible!</h3>
-    <p>Thank you for checking. You're eligible to donate blood.</p>
-    <button id="closePopup">Close</button>
+      <div class="eligibility-card">
+        <form id="eligibilityCheckForm">
+          <label>
+            Age
+            <input type="number" id="age" min="18" max="60" required placeholder="Enter your age">
+          </label>
+
+          <label>
+            Weight (kg)
+            <input type="number" id="weight" min="45" required placeholder="Enter your weight">
+          </label>
+
+          <label>
+            In good health?
+            <select id="health">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label>
+            Alcohol in last 24 hours?
+            <select id="alcohol">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit">Check Eligibility</button>
+          </div>
+        </form>
+
+        <div id="eligibilityResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="donation-tips" class="content-section">
+      <div class="section-heading">
+        <span>Before & after</span>
+        <h2>Helpful tips for a smooth donation</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">💧</div>
+          <h3>Hydrate</h3>
+          <p>Drink plenty of water before and after donating to stay energized.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🍽️</div>
+          <h3>Eat well</h3>
+          <p>Have a healthy meal within two hours before your donation appointment.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🛌</div>
+          <h3>Rest well</h3>
+          <p>Take it easy after the process and avoid heavy physical activity for a while.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📢</div>
+          <h3>Speak up</h3>
+          <p>Let the staff know if you feel dizzy or unwell before or after donating.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="content-section narrow">
+      <div class="section-heading">
+        <span>FAQs</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <details>
+          <summary>Is it safe to donate blood?</summary>
+          <p>Yes. We use sterile, single-use equipment and follow strict safety procedures to keep each donation safe and comfortable.</p>
+        </details>
+
+        <details>
+          <summary>How often can I donate?</summary>
+          <p>Whole blood donation is typically possible every 3 months for men and every 4 months for women, depending on your health and recovery.</p>
+        </details>
+
+        <details>
+          <summary>What are the benefits of donating?</summary>
+          <p>Besides saving lives, donation can support healthier iron levels and improve your awareness of personal health and wellbeing.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup-box">
+      <h3>🎉 You're Eligible!</h3>
+      <p>Thank you for checking. You are eligible to donate blood.</p>
+      <button id="closePopup">Close</button>
+    </div>
   </div>
-</div>
 
-
-  <!-- Footer -->
-  <footer>
+  <footer class="footer">
     <p>&copy; 2025 Blood Donation Portal. All rights reserved.</p>
   </footer>
 

@@ -2,85 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Search Donors</title>
-  <link rel="stylesheet" href="styles/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Donor | Blood Donation Portal</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
   <nav class="navbar">
-    <div class="logo"><img src="logo.png" alt="Logo"></div>
-    <div class="menu">
+    <a class="logo" href="index.html" aria-label="Blood Donation Portal home">
+      <img src="Logo.png" alt="Blood Donation Portal">
+    </a>
+    <div class="menu" id="menu">
       <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
-      <a href="search.html">Search</a>
+      <a href="register.html">Register Donor</a>
+      <a href="search.html" class="active">Search Donors</a>
       <a href="dashboard.html">Dashboard</a>
       <a href="login.html">Admin login</a>
     </div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="menu" aria-expanded="false">&#9776;</button>
   </nav>
 
-  <section class="form-section">
-    <h2>Find a Donor</h2>
-    <select id="bloodGroup">
-      <option value="">Select Blood Group</option>
-      <option>A+</option><option>B+</option><option>O+</option>
-      <option>AB+</option><option>A-</option><option>B-</option>
-      <option>O-</option><option>AB-</option>
-    </select>
-    <button onclick="searchDonors()">Search</button>
+  <main class="page-main directory-main">
+    <section class="page-banner" aria-labelledby="search-title">
+      <span class="form-eyebrow">Donor directory</span>
+      <h1 id="search-title">Find the right donor.</h1>
+      <p>Choose a blood group to look for registered donors who may be able to help.</p>
+    </section>
 
-    <!-- Result container -->
-    <div id="results" class="donor-results"></div>
-  </section>
+    <section class="directory-panel" aria-label="Search registered donors">
+      <form id="donorSearchForm" class="search-controls">
+        <label for="bloodGroup">Blood group</label>
+        <select id="bloodGroup" required>
+          <option value="">Select a blood group</option>
+          <option>A+</option><option>B+</option><option>O+</option>
+          <option>AB+</option><option>A-</option><option>B-</option>
+          <option>O-</option><option>AB-</option>
+        </select>
+        <button type="submit">Search donors <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="directory-help">Please contact donors directly to confirm availability before making arrangements.</p>
+      <div id="results" class="donor-results" aria-live="polite" aria-busy="false"></div>
+    </section>
 
-  <script>
-    
-    function searchDonors() {
-      const selectedGroup = document.getElementById("bloodGroup").value;
-      const resultsContainer = document.getElementById("results");
-      resultsContainer.innerHTML = "";
+    <section class="directory-callout">
+      <div>
+        <h2>Want to help someone in need?</h2>
+        <p>Register as a donor and make it easier for your community to find you.</p>
+      </div>
+      <a class="btn btn--primary" href="register.html">Become a donor</a>
+    </section>
+  </main>
 
-      const donors = JSON.parse(localStorage.getItem("donors")) || [];
-      const filtered = donors.filter(d => d.bloodGroup === selectedGroup);
+  <footer class="footer">
+    <p>&copy; 2025 Blood Donation Portal. All rights reserved.</p>
+  </footer>
 
-      if (filtered.length === 0) {
-        const noResultDiv = document.createElement("div");
-        noResultDiv.className = "no-result-animated";
-        noResultDiv.innerHTML = `
-          <div class="no-donor-message">
-            <img src="blood-drop.png" alt="Blood Drop" class="blood-drop-animated">
-            <span>😥 No donors found for this blood group.</span>
-          </div>
-        `;
-        resultsContainer.appendChild(noResultDiv);
-        return;
-      }
-
-      // Add donor found message
-      const foundDiv = document.createElement("div");
-      foundDiv.className = "donor-found";
-      foundDiv.innerHTML = `
-        <img src="blood-drop.png" alt="Blood Drop" class="blood-drop-glow">
-        <p>✅ Donors available for this blood group!</p>
-      `;
-      resultsContainer.appendChild(foundDiv);
-
-      // Add donor cards
-      filtered.forEach(d => {
-        const card = document.createElement("div");
-        card.className = "donor-card animated-card";
-        card.innerHTML = `
-          <h3>${d.name}</h3>
-          <p><strong>Blood Group:</strong> ${d.bloodGroup}</p>
-          <p><strong>Phone:</strong> ${d.phone}</p>
-          <p><strong>City:</strong> ${d.city}</p>
-        `;
-        resultsContainer.appendChild(card);
-      });
-
-    }
-  </script>
-  
   <script src="scripts/script.js"></script>
-
 </body>
 </html>

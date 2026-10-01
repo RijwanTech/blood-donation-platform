@@ -15,28 +15,61 @@
     </div>
     <div class="menu" id="menu">
       <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
-      <a href="search.html">Search</a>
-      <a href="login.html">Login</a>
+      <a href="register.html">Register Donor</a>
+      <a href="search.html">Search Donors</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="login.html" class="active">Admin login</a>
     </div>
-    <div class="hamburger" id="hamburger">&#9776;</div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-controls="menu" aria-expanded="false">&#9776;</button>
   </nav>
 
-  <!-- Login Form -->
-  <div class="login-container">
-    <h2>Admin Login</h2>
-    <form onsubmit="return login(event)">
-      <input type="text" id="username" placeholder="Username" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-      <p id="loginMessage" class="login-message"></p>
-    </form>
-  </div>
+  <main class="page-main">
+    <section class="login-layout" aria-labelledby="login-title">
+      <div class="login-intro">
+        <span class="form-eyebrow">Portal administration</span>
+        <h1>Welcome back.</h1>
+        <p>Sign in to review donor registrations and keep the community network up to date.</p>
+        <div class="registration-note">
+          <span class="registration-note__icon" aria-hidden="true">✓</span>
+          <p><strong>Authorized access only</strong><br>Use your administrator account to continue to the dashboard.</p>
+        </div>
+      </div>
+
+      <div class="login-container">
+        <div class="form-heading">
+          <span>Admin access</span>
+          <h2 id="login-title">Sign in to your account</h2>
+          <p>Enter your administrator credentials below.</p>
+        </div>
+        <form onsubmit="return login(event)">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" autocomplete="username" required />
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required />
+          <button type="submit">Sign in <span aria-hidden="true">→</span></button>
+          <p id="loginMessage" class="login-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Blood Donation Portal. All rights reserved.</p>
+  </footer>
 
   <script>
     // Hamburger Toggle
-    document.getElementById("hamburger").addEventListener("click", () => {
-      document.getElementById("menu").classList.toggle("show");
+    document.getElementById("hamburger").addEventListener("click", (event) => {
+      const button = event.currentTarget;
+      const menu = document.getElementById("menu");
+      const isExpanded = menu.classList.toggle("show");
+      button.setAttribute("aria-expanded", String(isExpanded));
+    });
+    document.querySelectorAll("#menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("show");
+        document.getElementById("hamburger").setAttribute("aria-expanded", "false");
+      });
     });
 
     // Simple Login Logic
@@ -54,7 +87,7 @@
         }, 1000);
       } else {
         message.style.color = "red";
-        message.innerText = "Invalid credentials. Try admin / admin123.";
+        message.innerText = "The username or password is incorrect. Please try again.";
       }
     }
   </script>
